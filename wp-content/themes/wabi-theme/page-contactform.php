@@ -6,7 +6,7 @@
 
 <div id="animated-bg"></div>
 
-    <div class="container-fluid w-75 m-auto p-5">
+    <div id="contact-form" class="container-fluid w-75 m-auto">
         <div class="row">
             <div class="col-12">
                 <h1 id="contact-form-title">tell us your story.</h1>

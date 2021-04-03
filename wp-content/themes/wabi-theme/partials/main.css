@@ -59,6 +59,7 @@ body {
 /*contact form*/
 
 #contact-form {
+    padding-top: 10vh;
     margin-bottom: 20vh;
 }
 
