@@ -53,5 +53,4 @@ get_header('index');
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer('index');

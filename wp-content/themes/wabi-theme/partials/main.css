@@ -55,7 +55,83 @@ body {
     top: 60%;
 }
 
+
+/*contact form*/
+
+#contact-form {
+    margin-bottom: 20vh;
+}
+
+.form-group {
+    font-size: 16px;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    padding: 15px;
+    margin: 50px auto;
+}
+
+.form-group input {
+    background-color: transparent;
+    border: none;
+    border-bottom: solid white 2px;
+    padding: 12px 0;
+    color: white;
+    width: 100%;
+}
+
+.form-group input:focus-visible {
+    outline: none;
+}
+
+.form-group select {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid white 2px;
+    padding: 12px 0;
+    color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+#contact-form button[type=submit] {
+    width: 99%;
+    margin: auto;
+    height: 4vh!important;
+    border: none;
+}
+
+.checkbox-label {
+    line-height: 25px;
+}
+
+#checkboxes-contactform input {
+    width: 5px!important;
+    margin-right: 5px;
+}
+
+#contact-form-infos hr {
+    background-color: white;
+    padding: 1px;
+    width: 100%;
+    margin-bottom: 10vh;
+}
+
+#contact-form-infos h1,
+#contact-form-infos h2,
+#contact-form-infos h3,
+#contact-form-infos h4,
+#contact-form-infos h5,
+#contact-form-infos h6 {
+    color: #999999;
+}
+
 #footer {
     height: 20vh;
     background-color: #000;
+    bottom: 0;
 }

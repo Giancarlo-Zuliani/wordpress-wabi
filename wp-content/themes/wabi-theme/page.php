@@ -12,7 +12,7 @@
  * @package wabi-theme
  */
 
-get_header();
+get_header('index');
 ?>
 
 	<main id="primary" class="site-main">
@@ -30,10 +30,9 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-		<?php	get_template_part('template-parts/try'); ?>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
-get_footer();
+
+get_footer('index');
