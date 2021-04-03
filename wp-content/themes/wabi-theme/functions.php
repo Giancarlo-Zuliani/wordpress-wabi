@@ -178,4 +178,13 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+function get_projects(){
+	global $wpdb;
+	return	 $wpdb->get_results( "SELECT * FROM `projects`");
 
+}
+
+function get_project_pictures($id){
+	global $wpdb;
+	return $wpdb->get_results("SELECT * FROM pictures WHERE project_id =  $id");
+}

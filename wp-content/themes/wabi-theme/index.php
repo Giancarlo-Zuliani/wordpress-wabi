@@ -18,12 +18,42 @@ get_header('index');
 	<main id="primary" class="site-main">
 <?php
 	get_template_part('template-parts/upper-jumbotron');
-		if ( have_posts() ) :
+	?>
+	<div class="container">
+	<?php
+	$sql = get_projects();	
+	foreach($sql as $project){
+		?>
+			<div class="row col-6">
+				<h2> <?php echo $project -> title?>
+				</h2>
+				<?php 
+					$pictures = get_project_pictures($project -> id);
+						$urlimg = wp_upload_dir()["baseurl"] .'/projects-resources/' . $pictures[0] ->url ;
+						?>
+
+					<img src="<?php echo $urlimg; ?>"alt="">
+			</div>
+	<?php
+	};
+	?>
+</div>
+<?php
+	$args=array(
+		'post_type' => 'project'
+	);
+	$loop = new WP_Query($args);
+	while ( $loop->have_posts() ) : $loop->the_post(); 
+        print the_title(); 
+        the_excerpt(); 
+    endwhile;
+	if ( have_posts('projects') ) :
 
 			if ( is_home() && ! is_front_page() ) :
 				?>
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+					
 				</header>
 				<?php
 			endif;
