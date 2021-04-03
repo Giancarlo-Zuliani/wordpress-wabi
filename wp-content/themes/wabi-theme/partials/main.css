@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+}
+
+#fixed-index-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    min-height: 20vh;
+}
+
+#header-index-logo {
+    width: 8vh;
+}
+
+#animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url('https://www.wabi.it/img/snow.gif');
+    min-height: 100%;
+    min-width: 100%;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+#upper-jumbotron {
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#upper-jumbotron h1 {
+    margin-left: 6%;
+    font-size: 9vw;
+    position: relative;
+    top: 40%;
+}
+
+#upper-jumbotron h1:first-child::before {
+    content: "";
+    width: 15%;
+    padding: 1px;
+    background-color: white;
+    position: absolute;
+    left: -15%;
+    top: 60%;
+}
+
+#footer {
+    height: 20vh;
+    background-color: #000;
+}
