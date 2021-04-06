@@ -136,3 +136,73 @@ body {
     background-color: #000;
     bottom: 0;
 }
+
+.project-box h2 {
+    color: white;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+
+.project-box img {
+    width: 100%;
+}
+
+.carousel-item {
+    max-width: 100%;
+}
+
+#modal_wait {
+    min-width: 100%;
+    margin: 0;
+}
+
+#modal_wait .modal-content {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+#modal_wait .modal-dialog {
+    min-width: 100%;
+    margin: 0;
+}
+
+.carousel-description {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bolder;
+}
+
+.close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.9;
+    z-index: 9999;
+}
+
+.close:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.close:before,
+.close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 9px;
+    background-image: url('https://www.wabi.it/img/snow.gif');
+    opacity: .32;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}

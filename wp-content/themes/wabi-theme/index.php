@@ -20,67 +20,73 @@ get_header('index');
 	get_template_part('template-parts/upper-jumbotron');
 	?>
 	<div class="container">
-	<?php
-	$sql = get_projects();	
-	foreach($sql as $project){
-		?>
-			<div class="row col-6">
-				<h2> <?php echo $project -> title?>
-				</h2>
-				<?php 
-					$pictures = get_project_pictures($project -> id);
-						$urlimg = wp_upload_dir()["baseurl"] .'/projects-resources/' . $pictures[0] ->url ;
-						?>
-
-					<img src="<?php echo $urlimg; ?>"alt="">
-			</div>
-	<?php
-	};
-	?>
-</div>
+		<div class="row">
 <?php
 	$args=array(
-		'post_type' => 'project'
+		'post_type' => 'project',
+		'order' => 'ASC'
 	);
 	$loop = new WP_Query($args);
-	while ( $loop->have_posts() ) : $loop->the_post(); 
-        print the_title(); 
-        the_excerpt(); 
+	$count = 0;
+	while ( $loop->have_posts() ) : $loop->the_post();
+	$count++;
+	$picArr = get_projects_images_urls(get_the_ID());
+	?>
+	<div class="prj-box col-md-6 p-0 m-0">
+		
+		<img src="
+			<?php echo wp_upload_dir()['baseurl'] .'/'.'projects-resources/'. $picArr[0]['url'];?>"
+		alt="">
+		
+		<h2 class="text-capitalize"> <?echo get_post_meta(get_the_ID() , 'project_title' , true)  ?> </h2>
+	</div>
+
+	<div class="modal" id="modal_wait" tabindex="-1" role="dialog" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body d-flex justify-content-center align-items-center">
+                        <div class="container">
+                        <div id="<?php echo 'carouselExampleControls' . strval($count);?>" class=" carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="close" ></div>
+                               <!---- CAROUSEL ITEMS ---->
+                                <?php 
+								foreach($picArr as $index =>$pic) ?>
+                                <div class="carousel-item <?php if($index == 0) echo 'active'; ?>">
+                                    <img class="d-block w-100" src="<?php echo wp_upload_dir()['baseurl'].'/'.'projects-resources/' . $pic['url']?>" alt="">
+                                    <!--- CAROUSEL CAPTIONS --->
+                                    <div class="carousel-caption d-none d-md-block carousel-description">
+                                        <h5 class="text-capitalize"><?php get_post_meta(get_the_ID() , 'project_title' , true) ?></h5>
+                                        <p class="text-capitalize"><?php echo $pic['description'] ?></p>
+                                      </div>
+                                </div>
+                              
+                                <!---- CAROUSEL CONROLLERS ---->
+                            </div>
+                               <a class="carousel-control-prev" href="<?php echo '#carouselExampleControls' . ($index + 1) ?>" role="button" data-slide="prev">
+                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                 <span class="sr-only">Previous</span>
+                             </a>
+                              <a class="carousel-control-next" href="<?php echo '#carouselExampleControls' . ($index + 1) ?>" role="button" data-slide="next">
+                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                 <span class="sr-only">Next</span>
+                             </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+<?php
     endwhile;
-	if ( have_posts('projects') ) :
+	?>
+    </div>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-					
-				</header>
-				<?php
-			endif;
-
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content');
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		get_template_part('template-parts/try');	
-		?>
+	</div>
+	</div>
 
 	</main><!-- #main -->
 
 <?php
-get_footer('index');
+get_footer('index');?>

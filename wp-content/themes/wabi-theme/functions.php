@@ -178,13 +178,18 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-function get_projects(){
-	global $wpdb;
-	return	 $wpdb->get_results( "SELECT * FROM `projects`");
 
-}
-
-function get_project_pictures($id){
+function get_projects_images_urls($id){
 	global $wpdb;
-	return $wpdb->get_results("SELECT * FROM pictures WHERE project_id =  $id");
+	$picquery = $wpdb -> get_results("SELECT * FROM wp_postmeta WHERE meta_key = 'project_id' AND meta_value = $id");
+	$custompostId = $picquery[0] -> post_id;
+	$arr = [];
+	$urls =  get_post_meta($custompostId,'url');
+	$captions = get_post_meta($custompostId ,'description');	
+	for($i = 0 ; $i < count($urls) ;$i++ ){
+		$obj['url'] = $urls[$i];
+		$obj['description'] = $captions[$i];
+		$arr[] = $obj;
+	};
+	return $arr;
 }
