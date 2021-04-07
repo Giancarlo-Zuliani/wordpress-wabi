@@ -1,151 +1,56 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 body {
+    min-height: 100vh;
+    width: 100%;
     background-color: #000;
 }
 
-#fixed-index-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    min-height: 20vh;
-}
-
 #header-index-logo {
-    width: 8vh;
+    width: 5%;
 }
 
 #animated-bg {
     position: fixed;
     top: 0;
     left: 0;
-    background-image: url('https://www.wabi.it/img/snow.gif');
     min-height: 100%;
     min-width: 100%;
     z-index: -1;
     opacity: 0.1;
+    background-image: url('https://www.wabi.it/img/snow.gif');
 }
 
-#upper-jumbotron {
-    height: 100vh;
+a {
     color: #fff;
-    display: flex;
-    flex-direction: row-reverse;
 }
 
-#upper-jumbotron h1 {
-    margin-left: 6%;
-    font-size: 9vw;
-    position: relative;
-    top: 40%;
+a:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
-#upper-jumbotron h1:first-child::before {
-    content: "";
-    width: 15%;
-    padding: 1px;
-    background-color: white;
-    position: absolute;
-    left: -15%;
-    top: 60%;
-}
-
-
-/*contact form*/
-
-#contact-form {
-    padding-top: 10vh;
-    margin-bottom: 20vh;
-}
-
-.form-group {
-    font-size: 16px;
-    color: white;
-    height: 40px;
-    line-height: 40px;
-    width: 100%;
-    padding: 15px;
-    margin: 50px auto;
-}
-
-.form-group input {
-    background-color: transparent;
-    border: none;
-    border-bottom: solid white 2px;
-    padding: 12px 0;
-    color: white;
-    width: 100%;
-}
-
-.form-group input:focus-visible {
-    outline: none;
-}
-
-.form-group select {
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    border-bottom: solid white 2px;
-    padding: 12px 0;
-    color: white;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    text-indent: 1px;
-    text-overflow: '';
-}
-
-#contact-form button[type=submit] {
-    width: 99%;
-    margin: auto;
-    height: 4vh!important;
-    border: none;
-}
-
-.checkbox-label {
-    line-height: 25px;
-}
-
-#checkboxes-contactform input {
-    width: 5px!important;
-    margin-right: 5px;
-}
-
-#contact-form-infos hr {
-    background-color: white;
-    padding: 1px;
-    width: 100%;
-    margin-bottom: 10vh;
-}
-
-#contact-form-infos h1,
-#contact-form-infos h2,
-#contact-form-infos h3,
-#contact-form-infos h4,
-#contact-form-infos h5,
-#contact-form-infos h6 {
-    color: #999999;
-}
-
-#footer {
-    height: 20vh;
-    background-color: #000;
-    bottom: 0;
-}
-
-.project-box h2 {
+.prj-box h2 {
     color: white;
     position: absolute;
     left: 5px;
     top: 10px;
 }
 
-.project-box img {
+.prj-box img {
     width: 100%;
+    transition: background-size ease 0.4s;
+}
+
+.prj-box:hover img {
+    opacity: 1;
+    -webkit-animation: flash 1.8s;
+    animation: flash 1.8s;
+    cursor: pointer;
 }
 
 .carousel-item {
@@ -159,7 +64,7 @@ body {
 
 #modal_wait .modal-content {
     height: 100vh;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 #modal_wait .modal-dialog {
@@ -192,11 +97,11 @@ body {
 .close:after {
     position: absolute;
     left: 15px;
-    content: ' ';
+    content: " ";
     height: 33px;
     width: 9px;
-    background-image: url('https://www.wabi.it/img/snow.gif');
-    opacity: .32;
+    background-image: url("https://www.wabi.it/img/snow.gif");
+    opacity: 0.32;
 }
 
 .close:before {
@@ -205,4 +110,394 @@ body {
 
 .close:after {
     transform: rotate(-45deg);
+}
+
+#bottom-jumbotron {
+    padding-top: 12%;
+    height: 50vh;
+}
+
+#bottom-jumbotron h1 {
+    color: white;
+    min-width: 100%;
+    font-size: 7vw;
+    font-weight: bolder;
+    padding-left: 15%;
+}
+
+#bottom-jumbotron h1:before {
+    content: "";
+    padding: 1px;
+    width: 8%;
+    position: absolute;
+    background-color: white;
+    top: 30%;
+    left: 5%;
+}
+
+#bottom-jumbotron p {
+    color: #999999;
+    font-size: 2vh;
+    margin-top: 15%;
+}
+
+#clients-title {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+header {
+    color: white;
+    height: 20vh;
+}
+
+header #navbar {
+    z-index: 999;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+    width: 90%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #navbar img {
+    width: 10vh;
+}
+
+header #navbar a {
+    font-size: 1.2rem;
+}
+
+#upper-jumbotron {
+    color: white;
+    height: 80vh;
+}
+
+#upper-jumbotron h1 {
+    position: relative;
+    top: 40%;
+    font-size: 8vw;
+}
+
+#upper-jumbotron-text {
+    margin-top: 25%;
+}
+
+#upper-jumbotron h1:first-child:before {
+    content: "";
+    width: 15%;
+    padding: 1px;
+    background-color: white;
+    position: absolute;
+    left: -15%;
+    top: 60%;
+}
+
+#upper-jumbotron h1:lastchild {
+    margin-bottom: 5%;
+}
+
+footer {
+    background-color: black;
+    color: #999999;
+    min-height: 25vh;
+}
+
+footer hr {
+    height: 1px;
+    background-color: #fff;
+    width: 100%;
+}
+
+footer p,
+footer a,
+footer h3 {
+    color: #999999;
+}
+
+#bottom-jumbotron {
+    height: 100vh;
+}
+
+#parallax {
+    padding: 25vh;
+    margin-bottom: 50px;
+    background-size: cover !important;
+}
+
+@media screen and (max-width: 660px) {
+    #parallax {
+        background-size: contain;
+    }
+}
+
+@media screen and (min-width: 661px) {
+    #parallax {
+        background-attachment: fixed !important;
+    }
+}
+
+#dashboard-header {
+    width: 100%;
+    height: 25vh;
+}
+
+#dashboard-header img {
+    width: 20vh;
+}
+
+#dashboard {
+    padding-bottom: 45px;
+}
+
+#dashboard hr {
+    width: 100%;
+    margin: auto;
+    height: 1px;
+    padding: 1px;
+    background-color: white;
+}
+
+#dashboard h3 {
+    font-size: 1.4rem;
+    color: white;
+}
+
+.image-container {
+    width: 49%;
+    padding: 15px;
+    display: inline-block;
+    position: relative;
+}
+
+.image-container .dashboard-images {
+    width: 100%;
+}
+
+.image-container:hover .fa-trash {
+    display: block;
+}
+
+.image-container .fa-trash {
+    display: none;
+    font-size: 1.6rem;
+    color: red;
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    transform: translateX(-50%);
+}
+
+.image-container .fa-trash:hover {
+    cursor: pointer;
+}
+
+.fa-plus-square {
+    font-size: 5rem;
+    color: green;
+    transition: color ease 0.2s;
+}
+
+.fa-plus-square:hover {
+    color: yellow;
+    cursor: pointer;
+}
+
+#dashboard-console {
+    margin-top: 15%;
+}
+
+#dashboard-console input {
+    background-color: transparent;
+    border: none;
+    border-bottom: solid white 2px;
+    padding: 12px 0;
+    color: white;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+#dashboard-console input:focus-visible {
+    outline: none;
+}
+
+#dashboard-console button[type=submit] {
+    width: 25%;
+    margin: 5% auto 0;
+    height: 4vh !important;
+    border: none;
+}
+
+.hidden-picture-form {
+    display: none;
+    width: 80%;
+    margin: 5% auto;
+}
+
+.hidden-picture-form input {
+    background-color: transparent;
+    border: none;
+    border-bottom: solid white 2px;
+    padding: 12px 0;
+    color: white;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.hidden-picture-form input:focus-visible {
+    outline: none;
+}
+
+.invalid-feedback {
+    color: red;
+    text-align: center;
+    display: block !important;
+}
+
+#dashboard-error-container span {
+    margin: 25% auto;
+    color: red;
+    text-align: center;
+}
+
+.dashboard-delete-button {
+    position: absolute;
+    right: 3%;
+    top: -15px;
+}
+
+.dashboard-delete-button:hover {
+    background-color: red;
+}
+
+.dashboard-delete-project-modal {
+    display: none;
+}
+
+#contactform {
+    margin-bottom: 20vh;
+}
+
+#contactform .form-group {
+    font-size: 16px;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    padding: 15px;
+    margin: 50px auto;
+}
+
+#contactform .form-group input {
+    background-color: transparent;
+    border: none;
+    border-bottom: solid white 2px;
+    padding: 12px 0;
+    color: white;
+    width: 100%;
+}
+
+#contactform .form-group input:focus-visible {
+    outline: none;
+}
+
+#contactform .form-group select {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid white 2px;
+    padding: 12px 0;
+    color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
+}
+
+#contactform button[type=submit] {
+    width: 99%;
+    margin: auto;
+    height: 4vh !important;
+    border: none;
+}
+
+#contactform .checkbox-label {
+    line-height: 25px;
+}
+
+#checkboxes-contactform input {
+    width: 5px !important;
+    margin-right: 5px;
+}
+
+#contact-form-infos hr {
+    background-color: white;
+    padding: 1px;
+    width: 100%;
+    margin-bottom: 10vh;
+}
+
+#contact-form-infos h1,
+#contact-form-infos h2,
+#contact-form-infos h3,
+#contact-form-infos h4,
+#contact-form-infos h5,
+#contact-form-infos h6 {
+    color: #999999;
+}
+
+#map {
+    width: 100%;
+    height: 100vh;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.fa-sort-down {
+    position: absolute;
+    font-size: 25px;
+    right: 30px;
+    top: 75%;
+}
+
+.fa-sort-down:hover {
+    cursor: pointer;
+}
+
+#contact-form-title {
+    color: #ffffff;
+    font-size: 8vw;
+}
+
+#contact-form-title:before {
+    content: "";
+    width: 10%;
+    position: absolute;
+    left: -15%;
+    top: 50%;
+    background-color: #fff;
+    padding-top: 1px;
 }

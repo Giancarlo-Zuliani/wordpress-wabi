@@ -15,4 +15,7 @@
             <a href=" <?php echo get_home_url() . '/?page_id=34' ?> ">start a project</a>
         </div>
     </div>
+    <?php
+	get_template_part('template-parts/upper-jumbotron');
+	?>
 
