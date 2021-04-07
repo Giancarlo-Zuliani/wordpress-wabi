@@ -11,7 +11,7 @@
 <body <?php body_class(); ?>>
     <div id="fixed-index-header" class="container-fluid m-auto">
         <div class="row m-auto px-5 d-flex w-100 align-items-center justify-content-between">
-            <a class="m-5" id="header-index-logo" href=" <?php echo home_url() ?> "><img src="https://www.wabi.it/img/logo.svg" alt="wabi-logo"></a>
+            <a class="" id="header-index-logo" href=" <?php echo home_url() ?> "><img src="https://www.wabi.it/img/logo.svg" alt="wabi-logo"></a>
             <a href=" <?php echo get_home_url() . '/?page_id=34' ?> ">start a project</a>
         </div>
     </div>

@@ -42,19 +42,19 @@
 
 /** The name of the database for WordPress */
 
-define( 'DB_NAME', 'wabi-test' );
+define( 'DB_NAME', 'giancarl_db' );
 
 
 
 /** MySQL database username */
 
-define( 'DB_USER', 'slaigo' );
+define( 'DB_USER', 'giancarl_user' );
 
 
 
 /** MySQL database password */
 
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', '(WUnE=guCEN,' );
 
 
 
